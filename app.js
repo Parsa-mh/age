@@ -50,6 +50,9 @@ function calculate(){
                     title : `you are ${year} years old`,
                     text : `with ${month} month and ${day} days`,
                 })
+                inputs.forEach((item) => {
+                    item.value = ""
+                });
             }
         }
         else{
@@ -81,6 +84,9 @@ function calculate(){
                     title : `you are ${year} years old`,
                     text : `with ${month} month and ${day} days`,
                 })
+                inputs.forEach((item) => {
+                    item.value = ""
+                });
             }
         }
     }
