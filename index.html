@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+    <div class="w-75 mx-auto mt-5">
+        <form onsubmit="calculate(event)">
+            <div class="card p-4">
+                <h2 class="text-center mb-3">Enter your birth time</h2>
+                <div class="input-group mb-2">
+                    <input type="text" class="form-control age-input" placeholder="year">
+                    <input type="text" class="form-control age-input" placeholder="month">
+                    <input type="text" class="form-control age-input" placeholder="day">
+                </div>
+                <div class="form-check form-switch mb-2">
+                    <input class="form-check-input" onchange="changeLabel()" type="checkbox" role="switch" id="Swich">
+                    <label class="form-check-label" id="swichLabel" for="Swich">Miladi</label>
+                  </div>
+                <button class="w-100 btn btn-primary">submit</button>
+            </div>
+        </form>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./moment.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jalaali-js/dist/jalaali.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="./app.js"></script>
+</body>
+</html>
