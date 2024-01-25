@@ -1,0 +1,56 @@
+@keyframes upDown {
+    0%{
+       transform: translate(0,0);
+    }
+    50%{
+       transform: translate(0,-10px);
+    }
+    100%{
+       transform: translate(0,0);
+    }
+ }
+ @keyframes downUp {
+    0%{
+       transform: translate(0,0);
+    }
+    50%{
+       transform: translate(0,10px);
+    }
+    100%{
+       transform: translate(0,0);
+    }
+ }
+ .circle{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    z-index: -1;
+ }
+ .box{
+    width: 90%;
+    height: 90%;
+    backdrop-filter: blur(5px);
+    background-color: rgba(40, 40, 40, 0.437);
+    border-radius: 0 35px 0 35px;
+ }
+ .main{
+    height: 400px;
+    width: 400px;
+    position: relative;
+ }
+ .circle1{
+    top: -5px;
+    left: 0;
+    animation-name: upDown;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+ }
+ .circle2{
+    bottom: -6px;
+    right: -35px;
+    animation-name: downUp;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+ }

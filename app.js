@@ -15,6 +15,7 @@ function calculate(event){
     try {
         if(inputs[0].value == ""||inputs[1].value == ""||inputs[2].value == "") throw "please fill fields"
         if(inputs[0].value.length != 4) throw "year must be completly with 4 number"
+        if(isNaN(Number(inputs[0].value)) || isNaN(Number(inputs[1].value)) || isNaN(Number(inputs[2].value))) throw "value is not number"
         if(inputs[1].value.length > 2) throw "month must has 2 number"
         if(inputs[2].value.length > 2) throw "day must has 2 number"
         if (checkbox.checked){
