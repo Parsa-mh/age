@@ -4,8 +4,7 @@ const checkLabel = document.querySelector("#swichLabel")
 let currentYear = moment().format(`YYYY`)
 let currentMonth = moment().format(`MM`)
 let currentDay = moment().format(`DD`)
-function calculate(event){
-    event.preventDefault()
+function calculate(){
     let NumberYear = Number(currentYear)
     let NumberMonth = Number(currentMonth)
     let NumberDay = Number(currentDay)
