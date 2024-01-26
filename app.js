@@ -32,7 +32,7 @@ function calculate(){
             }
             else {
                 year = currentShamsiY - Number(inputs[3].value)
-                if (Number(inputs[1].value) > currentShamsiM){
+                if (Number(inputs[4].value) > currentShamsiM){
                     year--;
                     month = (currentShamsiM+12) - Number(inputs[4].value);
                 }
@@ -126,6 +126,28 @@ function changeLabel(){
     else{
         checkLabel.textContent = "Miladi"
         card.style.transform = "rotateY(0deg)"
+    }
+}
+const checkDark = document.querySelector("#darkMode")
+const html = document.querySelector("html")
+const DarkLabel = document.querySelector("#dark-label")
+const cards = document.querySelectorAll(".cards")
+function darkMode(){
+    if (checkDark.checked){
+        cards.forEach(item => {
+            item.setAttribute("style","background-color: #b6b6b61d;")
+        });
+        DarkLabel.classList.replace("btn-outline-dark","btn-outline-light")
+        DarkLabel.textContent = "light"
+        html.setAttribute("data-bs-theme","dark")
+    }
+    else{
+        cards.forEach(item => {
+            item.setAttribute("style","background-color: #27272781;")
+        });
+        DarkLabel.classList.replace("btn-outline-light","btn-outline-dark")
+        DarkLabel.textContent = "dark"
+        html.setAttribute("data-bs-theme","light")
     }
 }
 

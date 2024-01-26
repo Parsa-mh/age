@@ -67,9 +67,13 @@
    align-items: center;
    justify-content: center;
    backdrop-filter: blur(5px);
-   background-color: rgba(40, 40, 40, 0.437);
+   background-color: #27272781;
    border-radius: 0 35px 0 35px;
 }
  .card-back{
    transform: rotateY(180deg);
  }
+ .dark{
+   margin-top: -8px;
+ }
+ 
