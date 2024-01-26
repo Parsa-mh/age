@@ -4,6 +4,7 @@ const checkLabel = document.querySelector("#swichLabel")
 let currentYear = moment().format(`YYYY`)
 let currentMonth = moment().format(`MM`)
 let currentDay = moment().format(`DD`)
+console.log(inputs);
 function calculate(){
     let NumberYear = Number(currentYear)
     let NumberMonth = Number(currentMonth)
@@ -11,18 +12,18 @@ function calculate(){
     let year
     let month
     let day
-    try {
-        if(inputs[0].value == ""||inputs[1].value == ""||inputs[2].value == "") throw "please fill fields"
-        if(inputs[0].value.length != 4) throw "year must be completly with 4 number"
-        if(isNaN(Number(inputs[0].value)) || isNaN(Number(inputs[1].value)) || isNaN(Number(inputs[2].value))) throw "value is not number"
-        if(inputs[1].value.length > 2) throw "month must has 2 number"
-        if(inputs[2].value.length > 2) throw "day must has 2 number"
-        if (checkbox.checked){
+    if(checkbox.checked){
+        try{
+            if(inputs[3].value == ""||inputs[4].value == ""||inputs[5].value == "") throw "please fill fields"
+            if(isNaN(Number(inputs[3].value)) || isNaN(Number(inputs[4].value)) || isNaN(Number(inputs[5].value))) throw "value is not number"
+            if(inputs[3].value.length != 4) throw "year must be completly with 4 number"
+            if(inputs[4].value.length > 2) throw "month must has 2 number"
+            if(inputs[5].value.length > 2) throw "day must has 2 number"
             const shamsi = jalaali.toJalaali(NumberYear,NumberMonth,NumberDay)
             let currentShamsiY = shamsi.jy
             let currentShamsiM = shamsi.jm
             let currentShamsiD = shamsi.jd
-            if(Number(inputs[0].value) > currentShamsiY){
+            if(Number(inputs[3].value) > currentShamsiY){
                 swal.fire({
                     icon : "error",
                     title : "this year is not vailed",
@@ -30,20 +31,20 @@ function calculate(){
                 })
             }
             else {
-                year = currentShamsiY - Number(inputs[0].value)
+                year = currentShamsiY - Number(inputs[3].value)
                 if (Number(inputs[1].value) > currentShamsiM){
                     year--;
-                    month = (currentShamsiM+12) - Number(inputs[1].value);
+                    month = (currentShamsiM+12) - Number(inputs[4].value);
                 }
                 else{
-                    month = currentShamsiM - Number(inputs[1].value)
+                    month = currentShamsiM - Number(inputs[4].value)
                 }
-                if (Number(inputs[2].value) > currentShamsiD){
+                if (Number(inputs[5].value) > currentShamsiD){
                     month--
-                    day = (currentShamsiD + jalaali.jalaaliMonthLength()) - Number(inputs[2].value)
+                    day = (currentShamsiD + jalaali.jalaaliMonthLength()) - Number(inputs[5].value)
                 }
                 else{
-                    day = currentShamsiD - Number(inputs[2].value)
+                    day = currentShamsiD - Number(inputs[5].value)
                 }
                 swal.fire({
                     icon : "info",
@@ -55,56 +56,76 @@ function calculate(){
                 });
             }
         }
-        else{
-            if(Number(inputs[0].value) > NumberYear){
-                swal.fire({
-                    icon : "error",
-                    title : "this year is not vailed",
-                    confirmButtonText : "okay",
-                })
-            }
-            else {
-                year = NumberYear - Number(inputs[0].value)
-                if (Number(inputs[1].value) > Number(currentMonth)){
-                    year--
-                    month = (NumberMonth+12) - Number(inputs[1].value)
-                }
-                else{
-                    month = NumberMonth - Number(inputs[1].value)
-                }
-                if (Number(inputs[2].value) > Number(currentDay)){
-                    month--
-                    day = (NumberDay + 30) - Number(inputs[2].value)
-                }
-                else{
-                    day = NumberDay - Number(inputs[2].value)
-                }
-                swal.fire({
-                    icon : "info",
-                    title : `you are ${year} years old`,
-                    text : `with ${month} month and ${day} days`,
-                })
-                inputs.forEach((item) => {
-                    item.value = ""
-                });
-            }
+        catch(error){
+            swal.fire({
+                icon : "error",
+                title : error,
+                confirmButtonText : "okay",
+                confirmButtonColor : "#424769",
+            })
         }
     }
-    catch (err){
-        swal.fire({
-            icon : "error",
-            title : err,
-            confirmButtonText : "okay",
-            confirmButtonColor : "#424769",
-        })
+    else{
+        try{
+            if(inputs[0].value == ""||inputs[1].value == ""||inputs[2].value == "") throw "please fill fields"
+            if(inputs[0].value.length != 4) throw "year must be completly with 4 number"
+            if(isNaN(Number(inputs[0].value)) || isNaN(Number(inputs[1].value)) || isNaN(Number(inputs[2].value))) throw "value is not number"
+            if(inputs[1].value.length > 2) throw "month must has 2 number"
+            if(inputs[2].value.length > 2) throw "day must has 2 number"
+            else{
+                if(Number(inputs[0].value) > NumberYear){
+                    swal.fire({
+                        icon : "error",
+                        title : "this year is not vailed",
+                        confirmButtonText : "okay",
+                    })
+                }
+                else {
+                    year = NumberYear - Number(inputs[0].value)
+                    if (Number(inputs[1].value) > Number(currentMonth)){
+                        year--
+                        month = (NumberMonth+12) - Number(inputs[1].value)
+                    }
+                    else{
+                        month = NumberMonth - Number(inputs[1].value)
+                    }
+                    if (Number(inputs[2].value) > Number(currentDay)){
+                        month--
+                        day = (NumberDay + 30) - Number(inputs[2].value)
+                    }
+                    else{
+                        day = NumberDay - Number(inputs[2].value)
+                    }
+                    swal.fire({
+                        icon : "info",
+                        title : `you are ${year} years old`,
+                        text : `with ${month} month and ${day} days`,
+                    })
+                    inputs.forEach((item) => {
+                        item.value = ""
+                    });
+                }
+            }
+        }
+        catch(err){
+            swal.fire({
+                icon : "error",
+                title : err,
+                confirmButtonText : "okay",
+                confirmButtonColor : "#424769",
+            })
+        }
     }
 }
+const card = document.querySelector(".moeen")
 function changeLabel(){
     if (checkbox.checked){
         checkLabel.textContent = "Shamsi"
+        card.style.transform = "rotateY(180deg)"
     }
     else{
         checkLabel.textContent = "Miladi"
+        card.style.transform = "rotateY(0deg)"
     }
 }
 
