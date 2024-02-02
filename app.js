@@ -76,7 +76,7 @@ function calculate(){
             if(userBirth[1].length > 2) throw "month must has 2 number"
             if(userBirth[2].length > 2) throw "day must has 2 number"
             else{
-                if(Number(userBirth[0]) > NumberYear){
+                if(Number(userBirth[0]) > NumberYear || NumberYear - Number(userBirth[0] > 200)){
                     swal.fire({
                         icon : "error",
                         title : "this year is not vailed",
@@ -123,11 +123,11 @@ function calculate(){
 const card = document.querySelector(".moeen")
 function changeLabel(){
     if (checkbox.checked){
-        checkLabel.textContent = "Shamsi"
+        checkLabel.textContent = "Solar"
         card.style.transform = "rotateY(180deg)"
     }
     else{
-        checkLabel.textContent = "Miladi"
+        checkLabel.textContent = "Georgian"
         card.style.transform = "rotateY(0deg)"
     }
 }
@@ -153,5 +153,3 @@ function darkMode(){
         html.setAttribute("data-bs-theme","light")
     }
 }
-
-
