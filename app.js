@@ -45,7 +45,7 @@ function calculate(){
                     day = (currentShamsiD + jalaali.jalaaliMonthLength()) - Number(userBirth[2])
                 }
                 else{
-                    day = currentShamsiD - Number(userBirth[3])
+                    day = currentShamsiD - Number(userBirth[2])
                 }
                 swal.fire({
                     icon : "info",
