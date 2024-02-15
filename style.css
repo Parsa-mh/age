@@ -59,6 +59,15 @@
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
+.form-switch{
+  cursor: pointer;
+}
+.form-switch input{
+  cursor: pointer;
+}
+.form-switch label {
+  cursor: pointer;
+}
 .card-front,
 .card-back {
   width: 100%;
