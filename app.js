@@ -75,8 +75,8 @@ function calculate(){
             if(userBirth[0].length != 4) throw "year must be completly with 4 number"
             if(userBirth[1].length > 2) throw "month must has 2 number"
             if(userBirth[2].length > 2) throw "day must has 2 number"
-            else{
-                if(Number(userBirth[0]) > NumberYear || NumberYear - Number(userBirth[0] > 200)){
+            
+                if(Number(userBirth[0]) > NumberYear || (NumberYear - Number(userBirth[0]) > 200)){
                     swal.fire({
                         icon : "error",
                         title : "this year is not vailed",
@@ -107,7 +107,6 @@ function calculate(){
                     inputs.forEach((item) => {
                         item.value = ""
                     });
-                }
             }
         }
         catch(err){
