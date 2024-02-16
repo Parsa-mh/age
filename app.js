@@ -7,13 +7,8 @@ let currentDay = moment().format(`DD`);
 let NumberYear = Number(currentYear);
 let NumberMonth = Number(currentMonth);
 let NumberDay = Number(currentDay);
-document.addEventListener("keydown", (event) => {
-  console.log(event.key);
-  if (event.key == "Enter") {
-    calculate();
-  }
-});
-function calculate() {
+function calculate(event) {
+  event.preventDefault()
   let year;
   let month;
   let day;

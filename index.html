@@ -18,20 +18,20 @@
         <div class=" mx-auto main">  
             <div class="box mx-auto d-flex align-items-center justify-content-center moeen">
                 <div class=" card-front cards">
-                    <div class="p-4 w-100 h-100 d-flex align-items-center justify-content-center flex-column">
+                    <form class="p-4 w-100 h-100 d-flex align-items-center justify-content-center flex-column" onsubmit="calculate(event)">
                         <h2 class="text-center text-light mb-3">Enter your birth time in Georgian</h2>
                         <input type="text" class="form-control bg-dark-subtle age-input" placeholder="YYYY/MM/DD">
-                        <p class="text-center text-secondary-emphasis form-text mt-0 mb-2 fst-italic">put <span class="fst-normal">/</span> between your birthday year,month and day</p>
+                        <p class="text-center text-secondary-emphasis form-text mt-0 mb-2 fst-italic">put <strong class="fst-normal">/</strong> between your birthday year,month and day</p>
                         <button class="w-100 btn btn-primary" onclick="calculate()">submit</button>
-                    </div>
+                    </form>
                 </div>
                 <div class="card-back cards">
-                    <div class="p-4 w-100 h-100 d-flex align-items-center justify-content-center flex-column">
+                    <form class="p-4 w-100 h-100 d-flex align-items-center justify-content-center flex-column" onsubmit="calculate(event)">
                         <h2 class="text-center text-light mb-3">Enter your birth time in Solar</h2>
                         <input type="text" class="form-control bg-dark-subtle age-input" placeholder="YYYY/MM/DD">
                         <p class="text-center text-secondary-emphasis form-text mt-0 mb-2 fst-italic">put <span class="fst-normal">/</span> between your birthday year,month and day</p>
-                        <button class="w-100 btn btn-primary" onclick="calculate()">submit</button>
-                    </div>
+                        <button class="w-100 btn btn-primary">submit</button>
+                    </form>
                 </div>
             </div>
             <div class="bg-success rounded-circle circle circle1"></div>
