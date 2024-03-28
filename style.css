@@ -59,10 +59,10 @@
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
-.form-switch{
+.form-switch {
   cursor: pointer;
 }
-.form-switch input{
+.form-switch input {
   cursor: pointer;
 }
 .form-switch label {
@@ -88,7 +88,6 @@
   margin-top: -8px;
 }
 @media only screen and (max-width: 500px) {
-
   .master {
     width: 360px;
   }
