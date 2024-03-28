@@ -1,5 +1,5 @@
 const inputs = document.querySelectorAll(".age-input");
-const checkbox = document.querySelector("#Swich");
+const checkbox = document.querySelector("#Switch");
 const checkLabel = document.querySelector("#swichLabel");
 let currentYear = moment().format(`YYYY`);
 let currentMonth = moment().format(`MM`);
@@ -7,11 +7,13 @@ let currentDay = moment().format(`DD`);
 let NumberYear = Number(currentYear);
 let NumberMonth = Number(currentMonth);
 let NumberDay = Number(currentDay);
+//calculating age and error handling
 function calculate(event) {
-  event.preventDefault()
+  event.preventDefault();
   let year;
   let month;
   let day;
+  //solar years
   if (checkbox.checked) {
     let userBirth = inputs[1].value.split("/");
     try {
@@ -37,7 +39,7 @@ function calculate(event) {
           icon: "error",
           title: "this year is not vailed",
           confirmButtonText: "okay",
-          allowEnterKey:false
+          allowEnterKey: false,
         });
       } else {
         year = currentShamsiY - Number(userBirth[0]);
@@ -59,8 +61,8 @@ function calculate(event) {
         swal.fire({
           icon: "info",
           title: `you are ${year} years old`,
-          text: `with ${month} month and ${day} days`,
-          allowEnterKey:false
+          text: `plus ${month} month and ${day} days`,
+          allowEnterKey: false,
         });
         inputs.forEach((item) => {
           item.value = "";
@@ -71,13 +73,15 @@ function calculate(event) {
         icon: "error",
         title: error,
         confirmButtonText: "okay",
-        showConfirmButton:true,
-        confirmButtonColor:"#424769",
-        confirmButtonText:"okay",
-        allowEnterKey:false
+        showConfirmButton: true,
+        confirmButtonColor: "#424769",
+        confirmButtonText: "okay",
+        allowEnterKey: false,
       });
     }
-  } else {
+  }
+  // georgian years
+  else {
     let userBirth = inputs[0].value.split("/");
     try {
       if (userBirth[0] == "" || userBirth[1] == "" || userBirth[2] == "")
@@ -102,7 +106,7 @@ function calculate(event) {
           icon: "error",
           title: "this year is not vailed",
           confirmButtonText: "okay",
-          allowEnterKey:false
+          allowEnterKey: false,
         });
       } else {
         year = NumberYear - Number(userBirth[0]);
@@ -121,8 +125,8 @@ function calculate(event) {
         swal.fire({
           icon: "info",
           title: `you are ${year} years old`,
-          text: `with ${month} month and ${day} days`,
-          allowEnterKey:false
+          text: `plus ${month} month and ${day} days`,
+          allowEnterKey: false,
         });
         inputs.forEach((item) => {
           item.value = "";
@@ -134,7 +138,7 @@ function calculate(event) {
         title: err,
         confirmButtonText: "okay",
         confirmButtonColor: "#424769",
-        allowEnterKey:false
+        allowEnterKey: false,
       });
     }
   }
